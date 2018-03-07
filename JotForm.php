@@ -65,7 +65,8 @@ class JotForm {
         if ($method == 'GET' && $params != null){
             $params_array = array();
             foreach ($params as $key => $value) {
-                $params_array[] = "{$key}={$value}";
+                $urlencoded_value = urlencode($value);
+                $params_array[] = "{$key}={$urlencoded_value}";
             }
             $params_string = '?' . implode('&', $params_array);
             unset($params_array);
